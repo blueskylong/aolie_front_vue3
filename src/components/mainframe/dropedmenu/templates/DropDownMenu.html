@@ -1,0 +1,21 @@
+<li class="nav-item dropdown open" style="padding-left: 15px;display: flex;align-items: center;">
+    <a href="javascript:;" class="user-profile dropdown-toggle" aria-haspopup="true"
+       id="navbarDropdown" data-toggle="dropdown" aria-expanded="false">
+        <img src="../../../../assets/imgs/img.jpg" alt="">
+    </a>
+
+    <el-dropdown placement="top" @command="handleCommand">
+        <span class="el-dropdown-link">
+       {{getUserName()}}
+            <i class="el-icon-arrow-down el-icon--right"></i>
+      </span>
+        <template #dropdown>
+            <el-dropdown-menu placement="top">
+                <el-dropdown-item :icon="item.icons" :command="item.commandId"
+                                  v-for="item in properties?.lstItem">
+                    {{item.title}}
+                </el-dropdown-item>
+            </el-dropdown-menu>
+        </template>
+    </el-dropdown>
+</li>

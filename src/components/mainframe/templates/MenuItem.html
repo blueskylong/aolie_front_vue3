@@ -1,0 +1,24 @@
+<el-sub-menu :index="properties?.data?.lvlCode" v-if="!properties?.parent&&properties?.children">
+    <template #title>
+        <i class="el-icon-location"></i>
+        <span>{{properties?.data?.menuName}}</span>
+    </template>
+    <menu-item v-for="item in properties.children" :properties="item" @leafMenuClick="subMenuClick">
+        home-body
+    </menu-item>
+</el-sub-menu>
+
+<el-sub-menu :index="properties?.data?.lvlCode" v-else-if="!!properties?.parent && !!properties?.children">
+    <template #title><span>{{properties?.data?.menuName}}</span></template>
+    <menu-item v-for="item in properties.children" :properties="item" @leafMenuClick="subMenuClick">
+    </menu-item>
+</el-sub-menu>
+
+
+<el-menu-item :index="properties?.data?.lvlCode" v-else @click="menuClick">
+
+        <i :class="[properties?.data?.icon?properties?.data?.icon:'el-icon-location']"></i>
+        <span>{{properties?.data?.menuName}}</span>
+
+</el-menu-item>
+

@@ -1,0 +1,6 @@
+<el-menu
+        default-active="2"
+        class="el-menu-vertical-demo"
+        :collapse="!$store.state.app.sidebar.opened">
+    <menu-item v-for="item in lstMenu" :properties="item" @leafMenuClick="menuClicked"></menu-item>
+</el-menu>
